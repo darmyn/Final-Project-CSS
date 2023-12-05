@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Store</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category h2 {
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-container {
+            background-color: rgba(255, 255, 255, .3);
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .product {
+            background-color: rgba(255, 255, 255, .2);
+            min-width: 250px;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-info {
+            background-color: rgba(255, 255, 255, .9);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product:hover .product-info {
+            opacity: 1;
+        }
+
+        .product-info h3,
+        .product-info p {
+            margin: 5px 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="../assets/images/logo.png" alt="flamingo with sunglasses">
+        <nav>
+            <a href="../html/index.html">HOME</a>
+            <a href="../html/about.html">ABOUT</a>
+            <a href="../html/products.html">PRODUCTS</a>
+            <a href="../html/contact.html">CONTACT</a>
+        </nav>
+    </header>
+    <main>
+        <div class="category">
+            <h2>Category 1</h2>
+            <div class="product-container">
+                <div class="product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <div class="product-info">
+                        <h3>Product 1</h3>
+                        <p>$99.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product2.jpg" alt="Product 2">
+                    <div class="product-info">
+                        <h3>Product 2</h3>
+                        <p>$79.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Product 3">
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>$129.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Product 3">
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>$129.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Product 3">
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>$129.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <h2>Category 1</h2>
+            <div class="product-container">
+                <div class="product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <div class="product-info">
+                        <h3>Product 1</h3>
+                        <p>$99.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product2.jpg" alt="Product 2">
+                    <div class="product-info">
+                        <h3>Product 2</h3>
+                        <p>$79.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Product 3">
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>$129.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Product 3">
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>$129.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Product 3">
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>$129.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <img id="modalImage" src="" alt="Product Image">
+                <p id="modalDescription"></p>
+                <p id="modalPrice"></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <img src="../assets/images/logo.png" alt="Your Logo">
+        <p>123 Beach Street, Beach City</p>
+        <p>Email: info@yoursunglasses.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <a href="contact.html" class="footer-button">Contact Us</a>
+    </footer>
+    <script>
+        function openModal(title, image, description, price) {
+            document.getElementById('modalTitle').innerHTML = title;
+            document.getElementById('modalImage').src = image;
+            document.getElementById('modalDescription').innerHTML = description;
+            document.getElementById('modalPrice').innerHTML = price;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

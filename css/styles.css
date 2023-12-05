@@ -1,0 +1,78 @@
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+.landing-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.landing-section p {
+    font-size: 1.4em;
+    color: #ffffff;
+}
+
+.landing-section a {
+    background-color: #8ad6d6;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.landing-image {
+    border-radius: 20px;
+    max-width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.testimonial-section {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.testimonial {
+    text-align: center;
+}
+
+.rating {
+    font-size: 24px;
+    color: #f39c12;
+}
+
+blockquote {
+    font-style: italic;
+    margin: 10px 0;
+}
+
+cite {
+    font-weight: bold;
+}
+
+.category {
+    background-color: rgba(138, 214, 214, 0.7);
+    margin-bottom: 30px;
+}
+
+.category h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.product-list {
+    display: flex;
+    overflow-x: auto;
+}
+
+.product {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    min-width: 200px;
+}
